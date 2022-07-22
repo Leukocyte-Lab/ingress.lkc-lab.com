@@ -69,5 +69,15 @@ export default ({ mode }) => defineConfig({
         ],
       },
     }),
-  ]
+  ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          dompurify: ['dompurify'],
+          iconify: ['@iconify/iconify']
+        }
+      }
+    }
+  },
 })
