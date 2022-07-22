@@ -2,11 +2,13 @@
   "name": "ingress.lkc-lab.com",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "npm run lint:eslint && npm run lint:stylelint",
+    "lint:eslint": "eslint --ext .js,.ts,.vue src/ --fix",
+    "lint:stylelint": "stylelint 'src/**/*.{css,scss,sass,vue}' --fix"
   },
   "dependencies": {
     "vue": "^3.2.37"
