@@ -5,3 +5,11 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+interface ImportMetaEnv {
+  readonly VITE_TYPEKIT_ID: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
