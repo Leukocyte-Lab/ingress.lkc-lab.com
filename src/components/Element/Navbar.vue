@@ -1,38 +1,24 @@
 <script setup lang="ts">
-import { AtLeastOne } from '@/shared/types/optional';
-import { ref } from 'vue';
-
 import logo from '@/assets/images/lkc.half.logo.svg';
 
-const items = ref<AtLeastOne<{
-  name: string;
-  path: string;
-  hook: string;
-}, 'hook' | 'path'>[]>
-([
-  {
-    name: '關於 LKC',
-    hook: 'about',
-  },
-  {
-    name: '產品與服務',
-    path: 'products',
-  },
-  {
-    name: '徵才資訊',
-    path: 'careers',
-  },
-  {
-    name: '聯絡我們',
-    path: 'contact',
-  },
-]);
+import type { AtLeastOne } from '@/shared/types/optional';
+
+defineProps<{
+  items: AtLeastOne<
+    {
+      name: string;
+      path: string;
+      hook: string;
+    },
+    'hook' | 'path'
+  >[];
+}>();
 </script>
 
 <template>
   <nav :class="$style['navbar-container']" class="navbar">
     <div :class="$style['navbar-logo']">
-      <img :src="logo" alt="">
+      <img :src="logo" alt="" />
     </div>
     <ul :class="$style['navbar-wrapper']">
       <template v-for="item in items" :key="item.name">
