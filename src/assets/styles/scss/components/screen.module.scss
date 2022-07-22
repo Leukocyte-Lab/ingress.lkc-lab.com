@@ -1,0 +1,10 @@
+.screen {
+  &-fullscreen {
+    height: 100vh;
+    width: 100%;
+  }
+  
+  &-clip {
+    overflow: hidden;
+  }  
+}
