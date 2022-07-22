@@ -6,5 +6,7 @@ import '@vue/runtime-core'
 export {}
 
 declare module '@vue/runtime-core' {
-  export interface GlobalComponents {}
+  export interface GlobalComponents {
+    MainContainer: typeof import('./src/components/Layout/MainContainer.vue')['default']
+  }
 }
