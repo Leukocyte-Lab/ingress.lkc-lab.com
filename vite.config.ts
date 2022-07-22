@@ -1,4 +1,4 @@
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import { join } from 'path';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import AutoImport from 'unplugin-auto-import/vite';
@@ -8,7 +8,7 @@ import IconsResolver from 'unplugin-icons/resolver';
 import Vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default ({ mode }) => defineConfig({
   resolve: {
     alias: {
       '@': `${join(__dirname, 'src')}`
