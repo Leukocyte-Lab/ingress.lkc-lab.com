@@ -14,15 +14,15 @@ const iconDictionary = {
     /unity|laraval|vuejs|react|angular/,
     /amazon|linode|cloudflare/,
     /wordpress|drupal|wix/,
-    /jenkins/
+    /jenkins/,
   ],
   pair: {
     apple: /mac|osx|os x|ios|ipados|ipad|xserver/,
     'js-square': /js|javascript/,
     'node-js': /node-js|nodejs|node/,
     'digitial-ocean': /digitial ocean/,
-    database: /db|database|sql/
-  }
+    database: /db|database|sql/,
+  },
 };
 
 export const matcher = (
@@ -37,7 +37,7 @@ export const matcher = (
     if (res) {
       return {
         icon: `fa6-brands:${pair[0].split(' ')[0] as IconName}`,
-        class: pair[0].split(' ')[1]
+        class: pair[0].split(' ')[1],
       };
     }
   }
@@ -48,12 +48,12 @@ export const matcher = (
     if (res) {
       return {
         icon: `fa6-brands:${res[0].split(' ')[0] as IconName}`,
-        class: res[0].split(' ')[1]
+        class: res[0].split(' ')[1],
       };
     }
   }
 
   return {
-    icon: 'fa6-solid:microchip'
+    icon: 'fa6-solid:microchip',
   };
 };

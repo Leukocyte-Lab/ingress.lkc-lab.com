@@ -3,12 +3,6 @@ import type { Callback } from './callback';
 
 export type GeneralObject = {
   [key: string]: Optional<
-    | GeneralObject
-    | string
-    | number
-    | boolean
-    | Callback
-    | Array<unknown>
-    | any
+    GeneralObject | string | number | boolean | Callback | Array<unknown> | any
   >;
 };
