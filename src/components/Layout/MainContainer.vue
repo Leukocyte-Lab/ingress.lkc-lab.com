@@ -1,11 +1,9 @@
-<script setup lang="ts">
-import ScreenTone from '@/components/Layout/ScreenTone.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main :class="$style['container-main']">
     <ScreenTone />
-    <Navbar />
+    <NavBar />
   </main>
 </template>
 

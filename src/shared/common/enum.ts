@@ -5,6 +5,6 @@ export function enumMapping<Payload, Enum>(
 ): Payload {
   return {
     ...item,
-    [key]: type[item[key] as unknown as keyof Enum]
+    [key]: type[item[key] as unknown as keyof Enum],
   };
 }
