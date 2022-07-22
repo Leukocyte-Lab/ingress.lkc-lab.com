@@ -1,6 +1,9 @@
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import { join } from 'path';
+
+// Plugins
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import { VitePluginFonts } from 'vite-plugin-fonts';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import Icons from 'unplugin-icons/vite';
@@ -51,6 +54,20 @@ export default ({ mode }) => defineConfig({
       customCollections: {
         agh: FileSystemIconLoader('./src/assets/images/icons')
       }
+    }),
+    VitePluginFonts({
+      typekit: {
+        id: loadEnv(mode, process.cwd(), '')?.VITE_TYPEKIT_ID,
+      },
+      google: {
+        families: [
+          {
+            name: 'Noto Sans TC',
+            styles: 'wght@100;400;500',
+            defer: true,
+          },
+        ],
+      },
     }),
   ]
 })
