@@ -31,6 +31,7 @@ const dots: ComputedRef<Vector<'x' | 'y'>[]> = computed(() => Array.from({ lengt
   <div
     ref="wrapperRef$"
     :class="[$style['screen-fullscreen'], $style['screen-clip'], $style['layer-overlapped']]"
+    class="screen-tone"
   >
     <svg
       :width="width"
@@ -46,6 +47,7 @@ const dots: ComputedRef<Vector<'x' | 'y'>[]> = computed(() => Array.from({ lengt
           :r="radius"
           :cx="dot.x"
           :cy="dot.y"
+          class="dot"
         ></circle>
       </template>
     </svg>
@@ -55,4 +57,18 @@ const dots: ComputedRef<Vector<'x' | 'y'>[]> = computed(() => Array.from({ lengt
 <style module lang="scss" scoped>
 @use '@/assets/styles/scss/components/layer.module.scss' as layer;
 @use '@/assets/styles/scss/components/screen.module.scss' as screen;
+</style>
+
+<style lang="scss" scoped>
+@use '@/assets/styles/scss/components/palette.module.scss' as palette;
+
+.screen-tone {
+  position: absolute;
+  z-index: 0;
+
+  .dot {
+    fill: #{palette.$white};
+    opacity: 0.25;
+  }
+}
 </style>
