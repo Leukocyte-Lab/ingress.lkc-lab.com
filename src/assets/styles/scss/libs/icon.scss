@@ -1,0 +1,18 @@
+@use "@/assets/styles/scss/components/palette.module.scss" as palette;
+
+/* stylelint-disable selector-class-pattern */
+.icon {
+  &-colorful {
+    &.fa6-brands\:ubuntu {
+      color: #{palette.$orange-0};
+    }
+
+    &.fa6-brands\:windows {
+      color: #{palette.$blue-0};
+
+      &.server {
+        color: #{palette.$blue-4};
+      }
+    }
+  }
+}

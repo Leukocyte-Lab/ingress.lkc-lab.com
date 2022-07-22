@@ -1,0 +1,66 @@
+@mixin font {
+  * {
+    font-family: 'DIN 2014', DIN, 'Noto Sans TC', 'Noto Sans CJK TC', system-ui,
+      'PingFang TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  .font {
+    &-thin {
+      font-weight: 300;
+    }
+
+    &-normal {
+      font-weight: 400;
+    }
+
+    &-medium {
+      font-weight: 500;
+    }
+
+    &-semi-bold {
+      font-weight: 600;
+    }
+
+    &-bold {
+      font-weight: 700;
+    }
+
+    &-extra-bold {
+      font-weight: 700;
+    }
+
+    &-black {
+      font-weight: 900;
+    }
+
+    &-uppercase {
+      text-transform: uppercase;
+
+      &.only-first {
+        text-transform: none;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  p {
+    &.paragraph,
+    &.description {
+      line-height: 1.4;
+      letter-spacing: 1px;
+    }
+  }
+}
