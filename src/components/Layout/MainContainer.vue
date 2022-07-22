@@ -5,6 +5,7 @@ import ScreenTone from '@/components/Layout/ScreenTone.vue';
 <template>
   <main :class="$style['container-main']">
     <ScreenTone />
+    <Navbar />
   </main>
 </template>
 
