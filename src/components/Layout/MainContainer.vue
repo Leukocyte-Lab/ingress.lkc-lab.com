@@ -36,6 +36,9 @@ const navbarItems = ref<
   <main :class="$style['container-main']">
     <ScreenTone />
     <NavBar :items="navbarItems" />
+    <div :class="$style['container-content']">
+      <div :class="$style['container-content']"></div>
+    </div>
   </main>
 </template>
 
