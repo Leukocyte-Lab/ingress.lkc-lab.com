@@ -107,13 +107,19 @@ onMounted(() => {
 <style lang="scss" scoped>
 @use '@/assets/styles/scss/components/palette.module.scss' as palette;
 
+@use '@/assets/styles/scss/components/effect.module.scss' as animate;
+
 .screen-tone {
+  @include animate.expanding($start: 0, $end: 100%);
+
   position: absolute;
   z-index: 0;
+  animation: expandWidth 1s cubic-bezier(0.65, 0.028, 0.235, 0.55) forwards;
 
   .dot {
     fill: #{palette.$white};
     opacity: 0.25;
+    transition: d all 0.5s ease-out;
   }
 }
 </style>
