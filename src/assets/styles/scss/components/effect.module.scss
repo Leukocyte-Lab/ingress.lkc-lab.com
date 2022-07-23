@@ -1,0 +1,21 @@
+@mixin expanding($start: 0, $end: 100vh) {
+  @keyframes expandHeight {
+    from {
+      height: $start;
+    }
+
+    to {
+      height: $end;
+    }
+  }
+
+  @keyframes expandWidth {
+    from {
+      width: $start;
+    }
+
+    to {
+      width: $end;
+    }
+  }
+}
