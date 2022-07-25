@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     MainContainer: typeof import('./src/components/Layout/MainContainer.vue')['default']
     NavBar: typeof import('./src/components/Element/NavBar.vue')['default']
+    NeonTexture: typeof import('./src/components/Texture/NeonTexture.vue')['default']
     ScreenTone: typeof import('./src/components/Layout/ScreenTone.vue')['default']
     SpotlightBox: typeof import('./src/components/Layout/SpotlightBox.vue')['default']
   }
