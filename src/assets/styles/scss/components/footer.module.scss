@@ -1,0 +1,132 @@
+@use 'sass:color';
+
+@use '@/assets/styles/scss/components/palette.module.scss' as palette;
+
+.footer {
+  &-container {
+    --height: var(--footer-height);
+    --padding-top: var(--footer-padding-top);
+    --padding-right: var(--footer-padding-right);
+    --padding-bottom: var(--footer-padding-bottom);
+    --padding-left: var(--footer-padding-left);
+    --logo-height: var(--footer-logo-height);
+    --content-width: var(--footer-content-width);
+    --nav-logo-width: 242.25px;
+    --radius: var(--footer-radius);
+    --title-font-size: var(--footer-title-font-size);
+    --font-size: var(--footer-font-size);
+
+    position: relative;
+    height: var(--height);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--padding-top) var(--padding-right) var(--padding-bottom)
+      var(--padding-left);
+    z-index: 100;
+    filter: drop-shadow(
+      0 0 4px #{rgba(color.adjust(palette.$gray-0, $lightness: -25%), 75%)}
+    );
+    color: #{palette.$white};
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #{palette.$gray-0};
+      z-index: 0;
+      clip-path: polygon(
+        0 var(--padding-bottom),
+        calc(var(--nav-logo-width) + var(--padding-left) * 1.5)
+          var(--padding-bottom),
+        calc(
+            var(--nav-logo-width) + var(--padding-left) * 1.5 +
+              var(--padding-right)
+          )
+          0,
+        100% 0,
+        100% 100%,
+        0% 100%
+      );
+      border-bottom-left-radius: var(--radius);
+    }
+  }
+
+  &-logo,
+  &-wrapper {
+    z-index: 1;
+  }
+
+  &-logo {
+    height: var(--logo-height);
+    margin-left: auto;
+  }
+
+  &-content {
+    &-wrapper {
+      position: relative;
+      width: var(--content-width);
+      height: 100%;
+      margin: 16px 64px;
+    }
+
+    width: 100%;
+    position: relative;
+  }
+
+  &-title,
+  &-text,
+  &-link {
+    color: #{palette.$white};
+    line-height: 1.5;
+  }
+
+  &-title {
+    font-size: var(--title-font-size);
+  }
+
+  &-text {
+    font-size: var(--font-size);
+    margin: calc(var(--font-size) * 0.75) 0;
+
+    &.copyright {
+      color: #{palette.$gray-5};
+      margin: 0;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    > span {
+      line-height: 1.4;
+    }
+  }
+
+  &-icon {
+    height: var(--font-size);
+    width: var(--font-size);
+    margin-right: var(--font-size);
+    margin-top: calc(var(--font-size) * 0.2);
+  }
+
+  &-item {
+    &-wrapper {
+      justify-content: space-between;
+      margin: var(--font-size) 0;
+    }
+
+    font-size: calc(var(--font-size) * 2);
+  }
+}
