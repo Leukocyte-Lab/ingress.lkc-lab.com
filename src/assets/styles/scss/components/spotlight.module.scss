@@ -20,15 +20,12 @@
       color: inherit;
       transition: filter 0.2s ease-in-out;
 
-      &-icon {
-        filter: url('#neon-effect');
-      }
-
       &:hover {
         filter: drop-shadow(0 4px 6px #{rgba(palette.$white, 0.45)});
       }
 
       &-icon {
+        filter: url('#neon-effect');
         font-size: var(--icon-size);
       }
 

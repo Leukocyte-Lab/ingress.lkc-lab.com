@@ -74,23 +74,23 @@ const contactItems = ref<
 ]);
 const careerSteps = ref<Step[]>([
   {
-    name: '招募',
+    name: '應徵',
     icon: 'fa6-solid:user-plus',
   },
   {
-    name: '應徵',
+    name: '書面審核',
     icon: 'fa6-solid:file-signature',
   },
   {
-    name: '聯絡',
-    icon: 'fa6-solid:envelope',
+    name: '第一次面試',
+    icon: 'fa6-solid:comments',
   },
   {
-    name: '聯絡',
-    icon: 'fa6-solid:envelope',
+    name: '第二次面試',
+    icon: 'fa6-solid:comment-dots',
   },
   {
-    name: '聯絡',
+    name: '結果通知',
     icon: 'fa6-solid:envelope',
   },
 ]);
@@ -297,7 +297,7 @@ const mapQuery = ref(
         />
         <GeneralButton
           :text="'查看更多徵才訊息'"
-          :link="'mailto:sales@lkc-lab.com'"
+          :link="'https://www.cakeresume.com/companies/leukocyte-lab-co-ltd/jobs'"
           :icon="'fa6-solid:arrow-up-right-from-square'"
           :icon-position="'right'"
         />
