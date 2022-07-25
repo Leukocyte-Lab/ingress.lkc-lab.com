@@ -60,7 +60,7 @@ export default ({ mode }) =>
               fas: 'fa-solid',
               far: 'fa-regular',
             },
-            customCollections: ['agh'],
+            customCollections: ['lkc'],
           }),
         ],
       }),
@@ -68,7 +68,7 @@ export default ({ mode }) =>
         compiler: 'vue3',
         autoInstall: true,
         customCollections: {
-          agh: FileSystemIconLoader('./src/assets/images/icons'),
+          lkc: FileSystemIconLoader('./src/assets/images/icons'),
         },
       }),
       VitePluginFonts({
