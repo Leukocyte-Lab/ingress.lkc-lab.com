@@ -174,7 +174,7 @@ onMounted(() => {
     position: absolute;
     z-index: 0;
     animation-delay: 1s;
-    animation: expandWidth 1s cubic-bezier(0.65, 0.028, 0.235, 0.55) forwards;
+    animation: expand-width 1s cubic-bezier(0.65, 0.028, 0.235, 0.55) forwards;
     will-change: width;
   }
 
