@@ -82,7 +82,15 @@ const contactItems = ref<
           $style['wrap'],
         ]"
       >
-        <SpotlightBox class="spotlight-box logo">
+        <SpotlightBox
+          :class="[
+            $style['spotlight-box'],
+            $style['container--column'],
+            $style['inline'],
+            $style['center'],
+          ]"
+          class="spotlight-box logo"
+        >
           <img :src="logo" alt="Main logo for Leukocyte-Lab Co., Ltd." />
         </SpotlightBox>
         <MainContent
@@ -91,6 +99,7 @@ const contactItems = ref<
             $style['inline'],
             $style['center'],
           ]"
+          class="main-introduction"
         />
       </section>
       <section
@@ -101,9 +110,9 @@ const contactItems = ref<
           $style['center'],
           $style['full-width'],
         ]"
-        class="article session-wrapper--spotlight"
+        class="session-wrapper--spotlight"
       >
-        <h1 class="title">關注我們</h1>
+        <h1 class="title font-uppercase font-bold">關注我們</h1>
         <div
           :class="[
             $style['container--row'],
@@ -116,14 +125,33 @@ const contactItems = ref<
             v-for="contact in contactItems"
             :key="`contact--${contact.name}`"
           >
-            <SpotlightBox class="spotlight-box social-link">
+            <SpotlightBox
+              :class="[
+                $style['spotlight-box'],
+                $style['container--column'],
+                $style['inline'],
+                $style['center'],
+              ]"
+              class="spotlight-box social-link"
+            >
               <a
-                :class="[$style['container--column'], $style['center']]"
+                :class="[
+                  $style['container--column'],
+                  $style['center'],
+                  $style['spotlight-box--link'],
+                ]"
                 :href="contact.url"
                 target="_blank"
               >
-                <Icon class="icon" :icon="contact.icon" />
-                <span class="text font-bold">{{ contact.name }}</span>
+                <Icon
+                  :class="$style['spotlight-box--link-icon']"
+                  :icon="contact.icon"
+                />
+                <span
+                  :class="$style['spotlight-box--link-text']"
+                  class="font-bold"
+                  >{{ contact.name }}</span
+                >
               </a>
             </SpotlightBox>
           </template>

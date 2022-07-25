@@ -10,15 +10,7 @@ withDefaults(
 </script>
 
 <template>
-  <component
-    :is="wrapperComponent"
-    :class="[
-      $style['spotlight'],
-      $style['container--column'],
-      $style['inline'],
-      $style['center'],
-    ]"
-  >
+  <component :is="wrapperComponent" :class="[$style['spotlight']]">
     <slot></slot>
   </component>
 </template>
