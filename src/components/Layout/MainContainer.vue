@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Icon } from '@iconify/vue';
 
 import logo from '@/assets/images/lkc.full.logo.svg';
 import MainContent from '@/../content/MainContent.component.md';
@@ -33,21 +34,55 @@ const navbarItems = ref<
     path: 'contact',
   },
 ]);
+
+const contactItems = ref<
+  {
+    name: string;
+    icon: string;
+    url: string;
+  }[]
+>([
+  {
+    name: 'Facebook',
+    icon: 'fa6-brands:facebook-f',
+    url: 'https://www.facebook.com/LeukocyteLab/',
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'fa6-brands:linkedin-in',
+    url: 'https://www.linkedin.com/company/lkc-lab',
+  },
+  {
+    name: 'Twitter',
+    icon: 'fa6-brands:twitter',
+    url: 'https://twitter.com/CoLeukocyte',
+  },
+  {
+    name: 'Medium',
+    icon: 'fa6-brands:medium',
+    url: 'https://medium.com/h1dra-security-team',
+  },
+]);
 </script>
 
 <template>
   <main :class="$style['container-main']">
     <ScreenTone />
+    <NeonTexture class="texture" />
     <NavBar :items="navbarItems" />
-    <div :class="[$style['container-content'], $style['container--column']]">
+    <div
+      :class="[$style['container-content'], $style['container--column']]"
+      class="session-wrapper--content"
+    >
       <section
+        id="about"
         :class="[
           $style['container-section'],
           $style['container--row'],
           $style['wrap'],
         ]"
       >
-        <SpotlightBox class="logo-spotlight-box">
+        <SpotlightBox class="spotlight-box logo">
           <img :src="logo" alt="Main logo for Leukocyte-Lab Co., Ltd." />
         </SpotlightBox>
         <MainContent
@@ -58,6 +93,42 @@ const navbarItems = ref<
           ]"
         />
       </section>
+      <section
+        id="follow-us"
+        :class="[
+          $style['container-section'],
+          $style['container--column'],
+          $style['center'],
+          $style['full-width'],
+        ]"
+        class="article session-wrapper--spotlight"
+      >
+        <h1 class="title">關注我們</h1>
+        <div
+          :class="[
+            $style['container--row'],
+            $style['wrap'],
+            $style['full-width'],
+          ]"
+          class="session-wrapper--card"
+        >
+          <template
+            v-for="contact in contactItems"
+            :key="`contact--${contact.name}`"
+          >
+            <SpotlightBox class="spotlight-box social-link">
+              <a
+                :class="[$style['container--column'], $style['center']]"
+                :href="contact.url"
+                target="_blank"
+              >
+                <Icon class="icon" :icon="contact.icon" />
+                <span class="text font-bold">{{ contact.name }}</span>
+              </a>
+            </SpotlightBox>
+          </template>
+        </div>
+      </section>
     </div>
   </main>
 </template>
@@ -67,10 +138,70 @@ const navbarItems = ref<
 </style>
 
 <style lang="scss" scoped>
-.logo-spotlight-box {
-  width: 580px;
-  height: 350px;
-  padding: 54px;
+@use '@/assets/styles/scss/components/palette.module.scss' as palette;
+
+.session {
+  &-wrapper {
+    &--content {
+      gap: 89px 0;
+    }
+
+    &--spotlight {
+      gap: 60px 0;
+    }
+  }
+}
+
+.spotlight-box {
+  &.logo {
+    width: 580px;
+    height: 350px;
+    padding: 54px;
+  }
+
+  &.social-link {
+    --width: 225px;
+    --height: 225px;
+    --icon-size: 80px;
+    --font-size: 24px;
+
+    width: var(--width);
+    height: var(--height);
+    color: #{palette.$white};
+
+    a {
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+      transition: filter 0.2s ease-in-out;
+
+      > .icon {
+        filter: url('#neon-effect');
+      }
+
+      &:hover {
+        filter: drop-shadow(0 4px 6px #{rgba(palette.$white, 0.45)});
+      }
+
+      > .icon {
+        font-size: var(--icon-size);
+      }
+
+      > .text {
+        font-size: var(--font-size);
+        margin-top: 32px;
+      }
+    }
+  }
+}
+
+.texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 </style>
 
