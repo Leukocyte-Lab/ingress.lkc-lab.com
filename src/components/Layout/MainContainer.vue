@@ -448,6 +448,8 @@ const mapQuery = ref(
   left: 0;
   z-index: -1;
   pointer-events: none;
+  height: 100%;
+  width: 100%;
 }
 
 .title {
