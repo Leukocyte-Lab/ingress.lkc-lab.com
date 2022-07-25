@@ -10,5 +10,6 @@ declare module '@vue/runtime-core' {
     MainContainer: typeof import('./src/components/Layout/MainContainer.vue')['default']
     NavBar: typeof import('./src/components/Element/NavBar.vue')['default']
     ScreenTone: typeof import('./src/components/Layout/ScreenTone.vue')['default']
+    SpotlightBox: typeof import('./src/components/Layout/SpotlightBox.vue')['default']
   }
 }
