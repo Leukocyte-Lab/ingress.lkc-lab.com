@@ -14,6 +14,13 @@
     width: 100%;
     margin: var(--font-size) 0;
     margin-top: calc(var(--font-size) * 2.5);
+
+    @media screen and (max-width: 768px) {
+      --size: 56px;
+
+      flex-direction: column;
+      gap: var(--size) 0;
+    }
   }
 
   &-item {
@@ -22,6 +29,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
 
     &-icon {
       display: flex;
@@ -32,6 +44,10 @@
       font-size: var(--icon-size);
       border: var(--stroke-width) solid #{palette.$white};
       border-radius: 50%;
+
+      @media screen and (max-width: 768px) {
+        margin-right: calc(var(--size) / 2);
+      }
     }
 
     &-text {
