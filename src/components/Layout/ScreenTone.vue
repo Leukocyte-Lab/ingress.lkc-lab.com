@@ -33,14 +33,26 @@ const rows = ref(0);
 const columns = ref(0);
 const tonePath = ref('');
 
+// TODO: Enable interactive screen tone effect after speed and performance be optimized
 const $mouse = reactive(
-  useMouse({
-    type: 'client',
-    resetOnTouchEnds: true,
-  })
+  // useMouse({
+  //   type: 'client',
+  //   resetOnTouchEnds: true,
+  // })
+  {
+    x: 0,
+    y: 0,
+  }
 );
 
-const $scroll = reactive(useWindowScroll());
+// TODO: Enable interactive screen tone effect after speed and performance be optimized
+const $scroll = reactive(
+  // useWindowScroll()
+  {
+    x: 0,
+    y: 0,
+  }
+);
 
 const calcVariables = () => {
   width.value = wrapperRef$.value?.offsetWidth || 0;
