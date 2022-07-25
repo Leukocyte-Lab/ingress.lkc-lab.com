@@ -1,3 +1,5 @@
+{#map-inject .ignore .fake}
+
 # 招募資訊
 
 ## WE ARE HIRING {.font-black .super-large .title}
