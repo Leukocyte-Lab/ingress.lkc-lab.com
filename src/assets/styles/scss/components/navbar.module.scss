@@ -4,6 +4,7 @@
 
 .navbar {
   &-container {
+    --height: var(--nav-height);
     --padding-top: var(--nav-padding-top);
     --padding-right: var(--nav-padding-right);
     --padding-bottom: var(--nav-padding-bottom);
@@ -15,7 +16,7 @@
 
     position: sticky;
     top: 0;
-    height: 131px;
+    height: var(--height);
     width: 100%;
     display: flex;
     flex-direction: row;

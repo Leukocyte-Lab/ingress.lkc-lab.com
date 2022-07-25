@@ -165,8 +165,8 @@ onMounted(() => {
 @use '@/assets/styles/scss/components/effect.module.scss' as animate;
 
 .screen-tone {
-  shape-rendering: optimizeSpeed;
-  image-rendering: optimizeSpeed;
+  shape-rendering: optimizespeed;
+  image-rendering: optimizespeed;
 
   &-wrapper {
     @include animate.expanding($start: 0, $end: 100%);
