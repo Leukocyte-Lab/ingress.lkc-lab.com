@@ -435,7 +435,7 @@ const mapQuery = ref(
 }
 
 .main-introduction {
-  width: 530px;
+  width: calc(100% - 580px - 64px);
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -475,7 +475,9 @@ const mapQuery = ref(
 }
 
 .career-wrapper {
-  text-align: center;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
 }
 </style>
 
