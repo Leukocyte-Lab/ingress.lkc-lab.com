@@ -7,6 +7,13 @@
     --label-font-size: 16px;
     --font-size: 22px;
 
+    @media screen and (max-width: 768px) {
+      --width: 340px;
+
+      float: none;
+      margin: 16px 0;
+    }
+
     float: right;
     top: 0;
     right: 0;
@@ -16,6 +23,7 @@
     display: flex;
     flex-direction: column;
     background-color: #{palette.$green-1};
+    color: #{palette.$white};
     border-radius: 20px;
     overflow: hidden;
   }
@@ -23,6 +31,10 @@
   &-header {
     padding: 16px;
     padding-left: 24px;
+
+    @media screen and (max-width: 768px) {
+      padding: 16px;
+    }
   }
 
   &-label,
@@ -37,6 +49,7 @@
   &-address {
     margin-top: calc(var(--label-font-size) / 2);
     font-size: var(--font-size);
+    line-height: 1.4;
   }
 
   &-icon {
@@ -53,6 +66,15 @@
     border-radius: 9px;
     box-shadow: 1px 4px 4px #{rgba(palette.$black, 25%)};
     font-size: calc(var(--font-size) * 1.25);
+
+    @media screen and (max-width: 768px) {
+      margin-top: 24px;
+      margin-left: 24px;
+    }
+
+    @media screen and (max-width: 500px) {
+      margin-left: 48px;
+    }
   }
 
   &-entity {

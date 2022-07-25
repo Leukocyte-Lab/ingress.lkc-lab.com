@@ -47,5 +47,17 @@ defineProps<{
   --nav-padding-left: 37px;
   --nav-radius: 5px;
   --nav-font-size: 22px;
+
+  @media screen and (max-width: 768px) {
+    --nav-height: 70px;
+    --nav-logo-width: 120px;
+    --nav-padding-top: 16px;
+    --nav-padding-right: 16px;
+    --nav-padding-bottom: 16px;
+    --nav-padding-left: 16px;
+    --nav-radius: 5px;
+    --nav-title-font-size: 20px;
+    --nav-font-size: 14px;
+  }
 }
 </style>

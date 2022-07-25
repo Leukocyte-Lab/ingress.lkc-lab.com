@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useBreakpoints } from '@vueuse/core';
 import { Icon } from '@iconify/vue';
 
 import logo from '@/assets/images/lkc.full.logo.svg';
@@ -15,6 +16,13 @@ import CareerProcedure from '@/../content/CareerProcedure.component.md';
 
 import type { Step } from '@/components/Exclusive/ProcedureBar.vue';
 import type { AtLeastOne } from '@/shared/types/optional';
+
+const breakpoints = useBreakpoints({
+  mobile: 768,
+  tablet: 1024,
+  desktop: 1440,
+  large: 1920,
+});
 
 const careerIntroRef$ = ref<HTMLElement | null>(null);
 const navbarItems = ref<
@@ -112,7 +120,9 @@ const mapQuery = ref(
         id="about"
         :class="[
           $style['container-section'],
-          $style['container--row'],
+          breakpoints.mobile
+            ? $style['container--column']
+            : $style['container--row'],
           $style['wrap'],
         ]"
       >
@@ -204,7 +214,9 @@ const mapQuery = ref(
         <h1 class="title font-uppercase font-bold">What we do</h1>
         <div
           :class="[
-            $style['container--row'],
+            breakpoints.mobile
+              ? $style['container--column']
+              : $style['container--row'],
             $style['wrap'],
             $style['full-width'],
           ]"
@@ -250,6 +262,7 @@ const mapQuery = ref(
           $style['center'],
           $style['full-width'],
         ]"
+        class="sales-wrapper"
       >
         <SalesContact
           :class="[$style['container--column'], $style['full-width']]"
@@ -269,9 +282,10 @@ const mapQuery = ref(
           $style['center'],
           $style['full-width'],
         ]"
+        class="career-wrapper"
       >
         <CareerIntro ref="careerIntroRef$" />
-        <template v-if="careerIntroRef$">
+        <template v-if="careerIntroRef$ && !breakpoints.mobile">
           <Teleport to="#map-inject">
             <MapBox
               :label="'地點'"
@@ -279,6 +293,13 @@ const mapQuery = ref(
               :query="mapQuery"
             />
           </Teleport>
+        </template>
+        <template v-else>
+          <MapBox
+            :label="'地點'"
+            :address="'新北市板橋區民族路 34 巷 22 號 2 樓'"
+            :query="mapQuery"
+          />
         </template>
       </section>
       <section
@@ -319,14 +340,28 @@ const mapQuery = ref(
   &-wrapper {
     &--content {
       gap: 89px 0;
+
+      @media screen and (max-width: 768px) {
+        gap: 48px 48px;
+      }
     }
 
     &--spotlight {
       gap: 60px 0;
+
+      @media screen and (max-width: 768px) {
+        gap: 48px 48px;
+      }
     }
 
     &--frame {
       --frame-border-radius: 75px;
+
+      @media screen and (max-width: 768px) {
+        --frame-border-radius: 30px;
+
+        padding: 16px;
+      }
 
       padding: 32px 128px;
       border: 1px solid #{palette.$white};
@@ -345,6 +380,18 @@ const mapQuery = ref(
     --height: 350px;
 
     padding: 54px;
+    object-fit: contain;
+
+    @media screen and (max-width: 768px) {
+      --width: 100%;
+      --height: auto;
+
+      padding: 33px;
+
+      > img {
+        max-width: 272px;
+      }
+    }
   }
 
   &.social-link {
@@ -352,6 +399,20 @@ const mapQuery = ref(
     --height: 225px;
     --icon-size: 80px;
     --font-size: 24px;
+
+    @media screen and (max-width: 768px) {
+      --width: 155px;
+      --height: 155px;
+      --icon-size: 52.5px;
+      --font-size: 18px;
+    }
+
+    @media screen and (max-width: 375px) {
+      --width: 145px;
+      --height: 145px;
+      --icon-size: 48px;
+      --font-size: 16px;
+    }
   }
 
   &.card {
@@ -359,11 +420,26 @@ const mapQuery = ref(
     --height: auto;
 
     padding: 56px;
+
+    @media screen and (max-width: 768px) {
+      --width: 100%;
+      --height: auto;
+
+      padding: 16px;
+
+      > img {
+        max-width: 272px;
+      }
+    }
   }
 }
 
 .main-introduction {
   width: 530px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .texture {
@@ -381,9 +457,25 @@ const mapQuery = ref(
   font-size: var(--title-font-size);
 }
 
-.sales-button {
-  margin: 35px 0;
-  margin-right: auto;
+.sales {
+  &-wrapper {
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  &-button {
+    margin: 35px 0;
+    margin-right: auto;
+
+    @media screen and (max-width: 768px) {
+      margin: 35px auto;
+    }
+  }
+}
+
+.career-wrapper {
+  text-align: center;
 }
 </style>
 

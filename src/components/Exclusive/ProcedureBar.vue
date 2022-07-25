@@ -55,15 +55,15 @@ const calcArrowPath = () => {
     arrowPath.value = stepArrows.value
       .map(
         ({ from, to }) => `
-M ${from.x + 76 * Number(Boolean(to.x)) + (76 / 2) * Number(Boolean(to.y))} ${
+M ${from.x + 76 * Number(Boolean(to.x)) + (56 / 2) * Number(Boolean(to.y))} ${
           from.y + (76 / 2) * Number(Boolean(to.y))
         }
-L ${to.x - 4 * 2 * Number(Boolean(to.x)) + (76 / 2) * Number(Boolean(to.y))} ${
-          to.y - (4 * 2 + 76 / 2) * Number(Boolean(to.y))
+L ${to.x - 4 * 2 * Number(Boolean(to.x)) + (56 / 2) * Number(Boolean(to.y))} ${
+          to.y - (4 * 2 + 56 / 2) * Number(Boolean(to.y))
         }
 l ${Math.SQRT2 * -4} ${Math.SQRT2 * -4}
-L ${to.x - 4 * 2 * Number(Boolean(to.x)) + (76 / 2) * Number(Boolean(to.y))} ${
-          to.y - (4 * 2 + 76 / 2) * Number(Boolean(to.y))
+L ${to.x - 4 * 2 * Number(Boolean(to.x)) + (56 / 2) * Number(Boolean(to.y))} ${
+          to.y - (4 * 2 + 56 / 2) * Number(Boolean(to.y))
         }
 l ${
           Math.SQRT2 * -4 * Number(Boolean(to.x)) +

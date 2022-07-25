@@ -47,6 +47,20 @@
         0% 100%
       );
       border-bottom-left-radius: var(--radius);
+
+      @media screen and (max-width: 768px) {
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - var(--padding-bottom)),
+          calc(
+              var(--logo-width) + var(--padding-left) * 3 + var(--padding-right)
+            )
+            calc(100% - var(--padding-bottom)),
+          calc(var(--logo-width) + var(--padding-left) * 3) 100%,
+          0% 100%
+        );
+      }
     }
   }
 
@@ -57,6 +71,10 @@
 
   &-logo {
     width: var(--logo-width);
+
+    > img {
+      height: 100%;
+    }
   }
 
   &-wrapper {
@@ -66,6 +84,11 @@
     align-items: center;
     width: var(--item-width);
     height: 100%;
+
+    @media screen and (max-width: 768px) {
+      // TODO: Implement mobile navigator
+      display: none;
+    }
   }
 
   &-item {
