@@ -1,0 +1,9 @@
+@use '@/assets/styles/scss/components/palette.module.scss' as palette;
+.spotlight {
+  --radius: 27px;
+
+  background: #{palette.$gray-0};
+  box-shadow: -2px -2px 20px #{rgba(palette.$white, 0.25)},
+    inset 0px 0px 45px 5px #{rgba(palette.$black, 0.25)};
+  border-radius: var(--radius);
+}
