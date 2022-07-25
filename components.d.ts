@@ -7,17 +7,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/Exclusive/ProcedureBox copy.vue')['default']
     GeneralButton: typeof import('./src/components/Element/GeneralButton.vue')['default']
     MainContainer: typeof import('./src/components/Layout/MainContainer.vue')['default']
     MainFooter: typeof import('./src/components/Element/MainFooter.vue')['default']
     MapBox: typeof import('./src/components/Exclusive/MapBox.vue')['default']
-    MapViewer: typeof import('./src/components/Exclusive/MapViewer.vue')['default']
     NavBar: typeof import('./src/components/Element/NavBar.vue')['default']
     NeonTexture: typeof import('./src/components/Texture/NeonTexture.vue')['default']
     ProcedureBar: typeof import('./src/components/Exclusive/ProcedureBar.vue')['default']
-    ProcedureBox: typeof import('./src/components/Exclusive/ProcedureBox.vue')['default']
-    ProcedureWrapper: typeof import('./src/components/Exclusive/ProcedureWrapper.vue')['default']
     ScreenTone: typeof import('./src/components/Layout/ScreenTone.vue')['default']
     SpotlightBox: typeof import('./src/components/Layout/SpotlightBox.vue')['default']
   }
