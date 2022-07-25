@@ -15,6 +15,7 @@ import CareerProcedure from '@/../content/CareerProcedure.component.md';
 
 import type { AtLeastOne } from '@/shared/types/optional';
 
+const careerIntroRef$ = ref<HTMLElement | null>(null);
 const navbarItems = ref<
   AtLeastOne<
     {
@@ -71,6 +72,9 @@ const contactItems = ref<
     url: 'https://medium.com/h1dra-security-team',
   },
 ]);
+const mapQuery = ref(
+  '!1m18!1m12!1m3!1d2284.3603220962555!2d121.46325844633562!3d25.009015175489008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a90887051d09%3A0xe2910d0ee00b287d!2zTGV1a29jeXRlLUxhYiDnm6fmsKros73lv5LogqHku73mnInpmZDlhazlj7g!5e0!3m2!1sen!2stw!4v1658725099913!5m2!1sen!2stw'
+);
 </script>
 
 <template>
@@ -236,7 +240,7 @@ const contactItems = ref<
         />
       </section>
       <section
-        id="products"
+        id="careers"
         :class="[
           $style['container-section'],
           $style['container--column'],
@@ -244,9 +248,16 @@ const contactItems = ref<
           $style['full-width'],
         ]"
       >
-        <CareerIntro
-          :class="[$style['container--column'], $style['full-width']]"
-        />
+        <CareerIntro ref="careerIntroRef$" />
+        <template v-if="careerIntroRef$">
+          <Teleport to="#map-inject">
+            <MapBox
+              :label="'地點'"
+              :address="'新北市板橋區民族路 34 巷 22 號 2 樓'"
+              :query="mapQuery"
+            />
+          </Teleport>
+        </template>
       </section>
       <section
         id="products"
