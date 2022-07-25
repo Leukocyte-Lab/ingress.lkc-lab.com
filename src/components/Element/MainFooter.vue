@@ -25,7 +25,7 @@ const breakpoints = useBreakpoints({
     <div
       :class="[
         $style['footer-wrapper'],
-        breakpoints.mobile
+        breakpoints.isSmaller('mobile')
           ? $style['container--column']
           : $style['container--row'],
         $style['full-width'],
@@ -41,7 +41,7 @@ const breakpoints = useBreakpoints({
         <div
           :class="[
             $style['footer-content-wrapper'],
-            breakpoints.mobile
+            breakpoints.isSmaller('mobile')
               ? $style['container--column']
               : $style['container--row'],
           ]"
