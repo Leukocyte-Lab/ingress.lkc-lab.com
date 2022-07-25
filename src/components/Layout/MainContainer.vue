@@ -9,6 +9,7 @@ import H1draLogo from '@/assets/images/h1dra-security.full.logo.svg';
 import MainContent from '@/../content/MainContent.component.md';
 import AGHIntro from '@/../content/AGHIntro.component.md';
 import H1draIntro from '@/../content/H1draIntro.component.md';
+import SalesContact from '@/../content/SalesContact.component.md';
 
 import type { AtLeastOne } from '@/shared/types/optional';
 
@@ -213,6 +214,25 @@ const contactItems = ref<
           </SpotlightBox>
         </div>
       </section>
+      <section
+        id="products"
+        :class="[
+          $style['container-section'],
+          $style['container--column'],
+          $style['center'],
+          $style['full-width'],
+        ]"
+      >
+        <SalesContact
+          :class="[$style['container--column'], $style['full-width']]"
+        />
+        <GeneralButton
+          :text="'sales@lkc-lab.com'"
+          :link="'mailto:sales@lkc-lab.com'"
+          :icon="'fa6-solid:envelope'"
+          class="sales-button"
+        />
+      </section>
     </div>
   </main>
 </template>
@@ -277,6 +297,11 @@ const contactItems = ref<
 
   color: #{palette.$white};
   font-size: var(--title-font-size);
+}
+
+.sales-button {
+  margin: 35px 0;
+  margin-right: auto;
 }
 </style>
 

@@ -1,0 +1,47 @@
+@mixin use(
+  $font-size,
+  $palette-text,
+  $palette-text-link-hover,
+  $palette-bg,
+) {
+  --font-size: #{$font-size};
+  --palette-text: #{$palette-text};
+  --palette-text-link-hover: #{$palette-text-link-hover};
+  --palette-bg: #{$palette-bg};
+  
+  --height: 40px;
+  --radius: calc(var(--height) * 0.5);
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  height: var(--height);
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  background-color: var(--palette-bg);
+  color: var(--palette-text);
+  font-size: var(--font-size);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--palette-text-link-hover);
+    color: var(--palette-bg);
+  }
+
+  .text {
+    margin: 0;
+    margin-left: 12px;
+  }
+
+  &.flip {
+    flex-direction: row-reverse;
+
+    .text {
+      margin: 0;
+      margin-right: 12px;
+    }
+  }
+}
