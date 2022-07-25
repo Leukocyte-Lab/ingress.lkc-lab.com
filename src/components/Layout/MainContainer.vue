@@ -120,7 +120,7 @@ const mapQuery = ref(
         id="about"
         :class="[
           $style['container-section'],
-          breakpoints.mobile
+          breakpoints.isSmaller('mobile')
             ? $style['container--column']
             : $style['container--row'],
           $style['wrap'],
@@ -214,7 +214,7 @@ const mapQuery = ref(
         <h1 class="title font-uppercase font-bold">What we do</h1>
         <div
           :class="[
-            breakpoints.mobile
+            breakpoints.isSmaller('mobile')
               ? $style['container--column']
               : $style['container--row'],
             $style['wrap'],
@@ -285,7 +285,7 @@ const mapQuery = ref(
         class="career-wrapper"
       >
         <CareerIntro ref="careerIntroRef$" />
-        <template v-if="careerIntroRef$ && !breakpoints.mobile">
+        <template v-if="careerIntroRef$ && !breakpoints.isSmaller('mobile')">
           <Teleport to="#map-inject">
             <MapBox
               :label="'地點'"
