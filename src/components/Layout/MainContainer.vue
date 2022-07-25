@@ -303,6 +303,7 @@ const mapQuery = ref(
         />
       </section>
     </div>
+    <MainFooter :contacts="contactItems" />
   </main>
 </template>
 

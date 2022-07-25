@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     copy: typeof import('./src/components/Exclusive/ProcedureBox copy.vue')['default']
     GeneralButton: typeof import('./src/components/Element/GeneralButton.vue')['default']
     MainContainer: typeof import('./src/components/Layout/MainContainer.vue')['default']
+    MainFooter: typeof import('./src/components/Element/MainFooter.vue')['default']
     MapBox: typeof import('./src/components/Exclusive/MapBox.vue')['default']
     MapViewer: typeof import('./src/components/Exclusive/MapViewer.vue')['default']
     NavBar: typeof import('./src/components/Element/NavBar.vue')['default']
