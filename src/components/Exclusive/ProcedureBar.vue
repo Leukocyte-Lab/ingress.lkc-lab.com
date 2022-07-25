@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
 
 import type { Vector } from '@/shared/types/vector';
@@ -79,6 +79,12 @@ l ${
 
 watchEffect(() => {
   calcStepArrows();
+});
+
+onMounted(() => {
+  new ResizeObserver(() => {
+    calcStepArrows();
+  }).observe(stepWrapperRef$.value!);
 });
 </script>
 

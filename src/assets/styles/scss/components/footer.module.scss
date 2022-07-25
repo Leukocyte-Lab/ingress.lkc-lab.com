@@ -44,8 +44,7 @@
         calc(var(--nav-logo-width) + var(--padding-left) * 1.5)
           var(--padding-bottom),
         calc(
-            var(--nav-logo-width) + var(--padding-left) * 1.5 +
-              var(--padding-right)
+            var(--nav-logo-width) + var(--padding-left) * 1.5 + var(--padding-right)
           )
           0,
         100% 0,
