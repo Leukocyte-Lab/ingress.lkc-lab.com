@@ -3,7 +3,12 @@ import { ref } from 'vue';
 import { Icon } from '@iconify/vue';
 
 import logo from '@/assets/images/lkc.full.logo.svg';
+import AGHLogo from '@/assets/images/argushack.full.logo.svg';
+import H1draLogo from '@/assets/images/h1dra-security.full.logo.svg';
+
 import MainContent from '@/../content/MainContent.component.md';
+import AGHIntro from '@/../content/AGHIntro.component.md';
+import H1draIntro from '@/../content/H1draIntro.component.md';
 
 import type { AtLeastOne } from '@/shared/types/optional';
 
@@ -82,7 +87,15 @@ const contactItems = ref<
           $style['wrap'],
         ]"
       >
-        <SpotlightBox class="spotlight-box logo">
+        <SpotlightBox
+          :class="[
+            $style['spotlight-box'],
+            $style['container--column'],
+            $style['inline'],
+            $style['center'],
+          ]"
+          class="spotlight-box logo"
+        >
           <img :src="logo" alt="Main logo for Leukocyte-Lab Co., Ltd." />
         </SpotlightBox>
         <MainContent
@@ -91,6 +104,7 @@ const contactItems = ref<
             $style['inline'],
             $style['center'],
           ]"
+          class="main-introduction"
         />
       </section>
       <section
@@ -101,9 +115,9 @@ const contactItems = ref<
           $style['center'],
           $style['full-width'],
         ]"
-        class="article session-wrapper--spotlight"
+        class="session-wrapper--spotlight"
       >
-        <h1 class="title">關注我們</h1>
+        <h1 class="title font-uppercase font-bold">關注我們</h1>
         <div
           :class="[
             $style['container--row'],
@@ -116,17 +130,87 @@ const contactItems = ref<
             v-for="contact in contactItems"
             :key="`contact--${contact.name}`"
           >
-            <SpotlightBox class="spotlight-box social-link">
+            <SpotlightBox
+              :class="[
+                $style['spotlight-box'],
+                $style['container--column'],
+                $style['inline'],
+                $style['center'],
+              ]"
+              class="spotlight-box social-link"
+            >
               <a
-                :class="[$style['container--column'], $style['center']]"
+                :class="[
+                  $style['container--column'],
+                  $style['center'],
+                  $style['spotlight-box--link'],
+                ]"
                 :href="contact.url"
                 target="_blank"
               >
-                <Icon class="icon" :icon="contact.icon" />
-                <span class="text font-bold">{{ contact.name }}</span>
+                <Icon
+                  :class="$style['spotlight-box--link-icon']"
+                  :icon="contact.icon"
+                />
+                <span
+                  :class="$style['spotlight-box--link-text']"
+                  class="font-bold"
+                  >{{ contact.name }}</span
+                >
               </a>
             </SpotlightBox>
           </template>
+        </div>
+      </section>
+      <section
+        id="products"
+        :class="[
+          $style['container-section'],
+          $style['container--column'],
+          $style['center'],
+          $style['full-width'],
+        ]"
+        class="session-wrapper--spotlight"
+      >
+        <h1 class="title font-uppercase font-bold">What we do</h1>
+        <div
+          :class="[
+            $style['container--row'],
+            $style['wrap'],
+            $style['full-width'],
+          ]"
+          class="session-wrapper--card"
+        >
+          <SpotlightBox
+            :class="[
+              $style['spotlight-box'],
+              $style['container--column'],
+              $style['center'],
+            ]"
+            class="spotlight-box card"
+          >
+            <img
+              :src="H1draLogo"
+              :class="$style['spotlight-box--image']"
+              alt="Main logo for H1DRA Security"
+            />
+            <H1draIntro />
+          </SpotlightBox>
+          <SpotlightBox
+            :class="[
+              $style['spotlight-box'],
+              $style['container--column'],
+              $style['center'],
+            ]"
+            class="spotlight-box card"
+          >
+            <img
+              :src="AGHLogo"
+              :class="$style['spotlight-box--image']"
+              alt="Main logo for ArgusHack"
+            />
+            <AGHIntro />
+          </SpotlightBox>
         </div>
       </section>
     </div>
@@ -135,6 +219,7 @@ const contactItems = ref<
 
 <style module lang="scss" scoped>
 @use '@/assets/styles/scss/components/container.module.scss' as container;
+@use '@/assets/styles/scss/components/spotlight.module.scss' as spotlight;
 </style>
 
 <style lang="scss" scoped>
@@ -154,8 +239,9 @@ const contactItems = ref<
 
 .spotlight-box {
   &.logo {
-    width: 580px;
-    height: 350px;
+    --width: 580px;
+    --height: 350px;
+
     padding: 54px;
   }
 
@@ -164,36 +250,18 @@ const contactItems = ref<
     --height: 225px;
     --icon-size: 80px;
     --font-size: 24px;
-
-    width: var(--width);
-    height: var(--height);
-    color: #{palette.$white};
-
-    a {
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-      color: inherit;
-      transition: filter 0.2s ease-in-out;
-
-      > .icon {
-        filter: url('#neon-effect');
-      }
-
-      &:hover {
-        filter: drop-shadow(0 4px 6px #{rgba(palette.$white, 0.45)});
-      }
-
-      > .icon {
-        font-size: var(--icon-size);
-      }
-
-      > .text {
-        font-size: var(--font-size);
-        margin-top: 32px;
-      }
-    }
   }
+
+  &.card {
+    --width: calc(50% - 56px);
+    --height: auto;
+
+    padding: 56px;
+  }
+}
+
+.main-introduction {
+  width: 530px;
 }
 
 .texture {
@@ -202,6 +270,13 @@ const contactItems = ref<
   left: 0;
   z-index: -1;
   pointer-events: none;
+}
+
+.title {
+  --title-font-size: 24px;
+
+  color: #{palette.$white};
+  font-size: var(--title-font-size);
 }
 </style>
 
@@ -218,7 +293,5 @@ const contactItems = ref<
     $palette-text-link-hover: palette.$white,
     $palette-code-bg-color: palette.$gray-7
   );
-
-  width: 530px;
 }
 </style>
