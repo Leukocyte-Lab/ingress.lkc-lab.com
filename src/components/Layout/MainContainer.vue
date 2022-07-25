@@ -10,6 +10,8 @@ import MainContent from '@/../content/MainContent.component.md';
 import AGHIntro from '@/../content/AGHIntro.component.md';
 import H1draIntro from '@/../content/H1draIntro.component.md';
 import SalesContact from '@/../content/SalesContact.component.md';
+import CareerIntro from '@/../content/CareerIntro.component.md';
+import CareerProcedure from '@/../content/CareerProcedure.component.md';
 
 import type { AtLeastOne } from '@/shared/types/optional';
 
@@ -231,6 +233,38 @@ const contactItems = ref<
           :link="'mailto:sales@lkc-lab.com'"
           :icon="'fa6-solid:envelope'"
           class="sales-button"
+        />
+      </section>
+      <section
+        id="products"
+        :class="[
+          $style['container-section'],
+          $style['container--column'],
+          $style['center'],
+          $style['full-width'],
+        ]"
+      >
+        <CareerIntro
+          :class="[$style['container--column'], $style['full-width']]"
+        />
+      </section>
+      <section
+        id="products"
+        :class="[
+          $style['container-section'],
+          $style['container--column'],
+          $style['center'],
+          $style['full-width'],
+        ]"
+      >
+        <CareerProcedure
+          :class="[$style['container--column'], $style['full-width']]"
+        />
+        <GeneralButton
+          :text="'查看更多徵才訊息'"
+          :link="'mailto:sales@lkc-lab.com'"
+          :icon="'fa6-solid:arrow-up-right-from-square'"
+          :icon-position="'right'"
         />
       </section>
     </div>

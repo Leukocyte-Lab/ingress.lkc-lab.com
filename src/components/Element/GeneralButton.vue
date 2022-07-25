@@ -16,7 +16,7 @@ withDefaults(
 
 <template>
   <a :class="{ flip: iconPosition === 'right' }" class="button" :href="link">
-    <Icon :icon="icon" />
+    <Icon class="icon" :icon="icon" />
     <span class="text">{{ text }}</span>
   </a>
 </template>
