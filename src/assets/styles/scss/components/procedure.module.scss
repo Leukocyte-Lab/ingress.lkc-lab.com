@@ -1,0 +1,54 @@
+@use '@/assets/styles/scss/components/palette.module.scss' as palette;
+
+.procedure {
+  &-container {
+    --font-size: 20px;
+    --size: 76px;
+    --icon-size: 32px;
+    --stroke-width: 2px;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: var(--font-size) 0;
+    margin-top: calc(var(--font-size) * 2.5);
+  }
+
+  &-item {
+    color: #{palette.$white};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--size);
+      height: var(--size);
+      font-size: var(--icon-size);
+      border: var(--stroke-width) solid #{palette.$white};
+      border-radius: 50%;
+    }
+
+    &-text {
+      margin: calc(var(--font-size) * 0.8) 0;
+      font-size: var(--font-size);
+    }
+  }
+
+  &-arrow {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(var(--size) / 2);
+    fill: transparent;
+    stroke-width: var(--stroke-width);
+    stroke: #{palette.$white};
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+}

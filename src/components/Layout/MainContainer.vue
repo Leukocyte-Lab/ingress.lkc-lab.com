@@ -13,6 +13,7 @@ import SalesContact from '@/../content/SalesContact.component.md';
 import CareerIntro from '@/../content/CareerIntro.component.md';
 import CareerProcedure from '@/../content/CareerProcedure.component.md';
 
+import type { Step } from '@/components/Exclusive/ProcedureBar.vue';
 import type { AtLeastOne } from '@/shared/types/optional';
 
 const careerIntroRef$ = ref<HTMLElement | null>(null);
@@ -32,18 +33,17 @@ const navbarItems = ref<
   },
   {
     name: '產品與服務',
-    path: 'products',
+    hook: 'products',
   },
   {
     name: '徵才資訊',
-    path: 'careers',
+    hook: 'careers',
   },
   {
     name: '聯絡我們',
-    path: 'contact',
+    hook: 'contact',
   },
 ]);
-
 const contactItems = ref<
   {
     name: string;
@@ -70,6 +70,28 @@ const contactItems = ref<
     name: 'Medium',
     icon: 'fa6-brands:medium',
     url: 'https://medium.com/h1dra-security-team',
+  },
+]);
+const careerSteps = ref<Step[]>([
+  {
+    name: '招募',
+    icon: 'fa6-solid:user-plus',
+  },
+  {
+    name: '應徵',
+    icon: 'fa6-solid:file-signature',
+  },
+  {
+    name: '聯絡',
+    icon: 'fa6-solid:envelope',
+  },
+  {
+    name: '聯絡',
+    icon: 'fa6-solid:envelope',
+  },
+  {
+    name: '聯絡',
+    icon: 'fa6-solid:envelope',
   },
 ]);
 const mapQuery = ref(
@@ -260,14 +282,16 @@ const mapQuery = ref(
         </template>
       </section>
       <section
-        id="products"
         :class="[
           $style['container-section'],
           $style['container--column'],
           $style['center'],
           $style['full-width'],
         ]"
+        class="session-wrapper--frame"
       >
+        <h1 class="title font-uppercase font-bold">徵才辦法</h1>
+        <ProcedureBar :steps="careerSteps" />
         <CareerProcedure
           :class="[$style['container--column'], $style['full-width']]"
         />
@@ -298,6 +322,18 @@ const mapQuery = ref(
 
     &--spotlight {
       gap: 60px 0;
+    }
+
+    &--frame {
+      --frame-border-radius: 75px;
+
+      padding: 32px 128px;
+      border: 1px solid #{palette.$white};
+      border-radius: var(--frame-border-radius);
+
+      .button {
+        margin-top: 32px;
+      }
     }
   }
 }
