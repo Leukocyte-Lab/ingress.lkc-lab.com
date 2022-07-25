@@ -1,5 +1,5 @@
 @mixin expanding($start: 0, $end: 100vh) {
-  @keyframes expandHeight {
+  @keyframes expand-height {
     from {
       height: $start;
     }
@@ -9,7 +9,7 @@
     }
   }
 
-  @keyframes expandWidth {
+  @keyframes expand-width {
     from {
       width: $start;
     }
