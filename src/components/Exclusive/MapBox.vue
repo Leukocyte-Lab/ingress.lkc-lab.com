@@ -19,14 +19,16 @@ defineProps<{
         {{ address }}
       </address>
     </div>
-    <iframe
-      :class="$style['map-entity']"
-      :src="`https://www.google.com/maps/embed?pb=${query}`"
-      style="border: 0"
-      allowfullscreen="false"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+    <client-only>
+      <iframe
+        :class="$style['map-entity']"
+        :src="`https://www.google.com/maps/embed?pb=${query}`"
+        style="border: 0"
+        allowfullscreen="false"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </client-only>
   </div>
 </template>
 
