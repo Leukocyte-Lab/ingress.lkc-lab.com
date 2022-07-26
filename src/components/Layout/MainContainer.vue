@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useBreakpoints } from '@vueuse/core';
+import { inject, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 
 import logo from '@/assets/images/lkc.full.logo.svg';
@@ -17,12 +16,7 @@ import CareerProcedure from '@/../content/CareerProcedure.component.md';
 import type { Step } from '@/components/Exclusive/ProcedureBar.vue';
 import type { AtLeastOne } from '@/shared/types/optional';
 
-const breakpoints = useBreakpoints({
-  mobile: 768,
-  tablet: 1024,
-  desktop: 1440,
-  large: 1920,
-});
+const isMobile = inject('isMobile');
 
 const careerIntroRef$ = ref<HTMLElement | null>(null);
 const navbarItems = ref<
@@ -120,7 +114,7 @@ const mapQuery = ref(
         id="about"
         :class="[
           $style['container-section'],
-          breakpoints.isSmaller('mobile')
+          isMobile
             ? $style['container--column']
             : $style['container--row'],
           $style['wrap'],
@@ -214,7 +208,7 @@ const mapQuery = ref(
         <h1 class="title font-uppercase font-bold">What we do</h1>
         <div
           :class="[
-            breakpoints.isSmaller('mobile')
+            isMobile
               ? $style['container--column']
               : $style['container--row'],
             $style['wrap'],
@@ -285,7 +279,7 @@ const mapQuery = ref(
         class="career-wrapper"
       >
         <CareerIntro ref="careerIntroRef$" />
-        <template v-if="careerIntroRef$ && !breakpoints.isSmaller('mobile')">
+        <template v-if="careerIntroRef$ && !isMobile">
           <Teleport to="#map-inject">
             <MapBox
               :label="'地點'"
