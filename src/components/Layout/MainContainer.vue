@@ -360,7 +360,13 @@ const mapQuery = ref(
       @media screen and (max-width: 768px) {
         --frame-border-radius: 30px;
 
-        padding: 16px;
+        padding: 32px 24px;
+      }
+
+      @media screen and (max-width: 374.9px) {
+        --frame-border-radius: 24px;
+
+        padding: 24px 16px;
       }
 
       padding: 32px 128px;
@@ -412,6 +418,13 @@ const mapQuery = ref(
       --height: 145px;
       --icon-size: 48px;
       --font-size: 16px;
+    }
+
+    @media screen and (max-width: 374.9px) {
+      --width: 108px;
+      --height: 108px;
+      --icon-size: 42px;
+      --font-size: 14px;
     }
   }
 
@@ -496,5 +509,27 @@ const mapQuery = ref(
     $palette-text-link-hover: palette.$white,
     $palette-code-bg-color: palette.$gray-7
   );
+
+  @media screen and (max-width: 768px) {
+    @include article.use(
+      $title-font-size: 20px,
+      $font-size: 16px,
+      $palette-text: palette.$white,
+      $palette-text-link: palette.$white,
+      $palette-text-link-hover: palette.$white,
+      $palette-code-bg-color: palette.$gray-7
+    );
+  }
+
+  @media screen and (max-width: 375px) {
+    @include article.use(
+      $title-font-size: 20px,
+      $font-size: 14px,
+      $palette-text: palette.$white,
+      $palette-text-link: palette.$white,
+      $palette-text-link-hover: palette.$white,
+      $palette-code-bg-color: palette.$gray-7
+    );
+  }
 }
 </style>
