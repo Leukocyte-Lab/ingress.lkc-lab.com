@@ -75,15 +75,6 @@ export default ({ mode }) =>
         typekit: {
           id: loadEnv(mode, process.cwd(), '')?.VITE_TYPEKIT_ID,
         },
-        google: {
-          families: [
-            {
-              name: 'Noto Sans TC',
-              styles: 'wght@100;400;500',
-              defer: true,
-            },
-          ],
-        },
       }),
     ],
   });
