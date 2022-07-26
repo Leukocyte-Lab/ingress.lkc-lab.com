@@ -1,11 +1,7 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024">
     <defs>
-      <filter
-        id="neon-effect"
-        color-interpolation-filters="sRGB"
-        filterUnits="userSpaceOnUse"
-      >
+      <filter id="neon-effect" color-interpolation-filters="sRGB">
         <feFlood flood-opacity="0" result="BackgroundImageFix" />
         <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
         <feColorMatrix
