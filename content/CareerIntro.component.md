@@ -4,9 +4,10 @@
 
 ## WE ARE HIRING {.font-black .super-large .title}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac tempus ligula, laoreet fermentum elit. Suspendisse quis gravida justo. Donec luctus est odio. Nunc semper rhoncus tempus. Proin non nibh nec sapien scelerisque efficitur. Curabitur commodo, ipsum ut lacinia ultricies, libero lacus egestas felis, tincidunt fermentum quam diam porttitor lectus. Praesent id lacus eleifend, vulputate nisl in, vulputate quam. 
+Leukocyte-Lab (LKC) 致力於各式網路威脅手法的研究與重現，並開發新形態資安量測工具，協助更多客戶提升資安量能。
 {.paragraph}
 
-Donec dictum tristique porta. Etiam convallis lorem lobortis nulla molestie, nec tincidunt ex ullamcorper.
-Etiam convallis lorem lobortis nulla molestie.
+在這裡你能與優秀的夥伴一起研究各式事件中的手法、並接觸資安產品從開發到正式上線的過程。
+
+我們期待與漏洞研究、駭客組織攻擊重現、資安工具開發等領域有熱忱的人，一起替台灣的資安環境注入更多免疫力。
 {.paragraph}
