@@ -1,7 +1,6 @@
 # 徵才辦法 {.hidden}
+有興趣了嗎？
+準備好你的履歷，或任何能讓我們更了解你的資料文件，現在就寄信到 GAT@lkc-lab.com 與我們聊聊吧！
 
-Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus. Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum.
-{.paragraph}
-
-Aenean sapien leo, maximus nec magna vel, gravida auctor quam. Cras congue massa massa, id luctus elit ultricies at. Maecenas in neque justo. Ut ac tincidunt lorem, non posuere metus. Sed vulputate pellentesque lectus, id luctus turpis interdum vel. Fusce aliquet condimentum arcu id elementum.
+*詳細內容請點選下方連結至 CakeResume 進一步了解
 {.paragraph}
