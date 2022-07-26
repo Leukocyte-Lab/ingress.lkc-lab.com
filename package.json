@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite-ssg build",
     "preview": "vite preview --host 0.0.0.0",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
     "lint:eslint": "eslint --ext .js,.ts,.vue src/ --fix",
@@ -50,6 +50,7 @@
     "vite": "^3.0.2",
     "vite-plugin-fonts": "^0.6.0",
     "vite-plugin-vue-markdown": "^0.20.1",
+    "vite-ssg": "^0.20.2",
     "vue-tsc": "^0.38.9"
   }
 }
