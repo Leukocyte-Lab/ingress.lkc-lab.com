@@ -103,8 +103,10 @@ const mapQuery = ref(
 
 <template>
   <main :class="$style['container-main']">
-    <ScreenTone />
-    <NeonTexture class="texture" />
+    <client-only>
+      <ScreenTone />
+      <NeonTexture class="texture" />
+    </client-only>
     <NavBar :items="navbarItems" />
     <div
       :class="[$style['container-content'], $style['container--column']]"
