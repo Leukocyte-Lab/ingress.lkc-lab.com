@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBreakpoints } from '@vueuse/core';
+import { inject } from 'vue';
 import { Icon } from '@iconify/vue';
 
 import logo from '@/assets/images/lkc.mixed.logo.svg';
@@ -12,12 +12,7 @@ defineProps<{
   }[];
 }>();
 
-const breakpoints = useBreakpoints({
-  mobile: 768,
-  tablet: 1024,
-  desktop: 1440,
-  large: 1920,
-});
+const isMobile = inject('isMobile');
 </script>
 
 <template>
@@ -25,9 +20,7 @@ const breakpoints = useBreakpoints({
     <div
       :class="[
         $style['footer-wrapper'],
-        breakpoints.isSmaller('mobile')
-          ? $style['container--column']
-          : $style['container--row'],
+        isMobile ? $style['container--column'] : $style['container--row'],
         $style['full-width'],
         $style['center'],
       ]"
@@ -41,9 +34,7 @@ const breakpoints = useBreakpoints({
         <div
           :class="[
             $style['footer-content-wrapper'],
-            breakpoints.isSmaller('mobile')
-              ? $style['container--column']
-              : $style['container--row'],
+            isMobile ? $style['container--column'] : $style['container--row'],
           ]"
         >
           <div :class="$style['footer-content']">
@@ -143,6 +134,13 @@ const breakpoints = useBreakpoints({
   --footer-radius: 5px;
   --footer-title-font-size: 24px;
   --footer-font-size: 18px;
+
+  @media screen and (max-width: 1280px) {
+    --footer-logo-height: 108px;
+    --footer-content-width: calc(100% - 24px * 2);
+    --footer-title-font-size: 22px;
+    --footer-font-size: 16px;
+  }
 
   @media screen and (max-width: 768px) {
     --footer-height: auto;

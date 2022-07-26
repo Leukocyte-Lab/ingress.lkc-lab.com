@@ -86,13 +86,23 @@
   &-logo {
     position: relative;
     height: var(--logo-height);
-    margin-left: auto;
+    margin-left: 72px;
+
+    > img {
+      height: 100%;
+    }
+
+    @media screen and (max-width: 1280px) {
+      margin-left: 0;
+    }
 
     @media screen and (max-width: 768px) {
       > img {
+        height: auto;
         width: 100%;
       }
 
+      max-width: 480px;
       width: 100%;
       margin: 0;
       margin-bottom: var(--padding-bottom);

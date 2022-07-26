@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useBreakpoints } from '@vueuse/core';
+import { inject, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 
 import logo from '@/assets/images/lkc.full.logo.svg';
@@ -17,12 +16,7 @@ import CareerProcedure from '@/../content/CareerProcedure.component.md';
 import type { Step } from '@/components/Exclusive/ProcedureBar.vue';
 import type { AtLeastOne } from '@/shared/types/optional';
 
-const breakpoints = useBreakpoints({
-  mobile: 768,
-  tablet: 1024,
-  desktop: 1440,
-  large: 1920,
-});
+const isMobile = inject('isMobile');
 
 const careerIntroRef$ = ref<HTMLElement | null>(null);
 const navbarItems = ref<
@@ -120,7 +114,7 @@ const mapQuery = ref(
         id="about"
         :class="[
           $style['container-section'],
-          breakpoints.isSmaller('mobile')
+          isMobile
             ? $style['container--column']
             : $style['container--row'],
           $style['wrap'],
@@ -214,7 +208,7 @@ const mapQuery = ref(
         <h1 class="title font-uppercase font-bold">What we do</h1>
         <div
           :class="[
-            breakpoints.isSmaller('mobile')
+            isMobile
               ? $style['container--column']
               : $style['container--row'],
             $style['wrap'],
@@ -285,7 +279,7 @@ const mapQuery = ref(
         class="career-wrapper"
       >
         <CareerIntro ref="careerIntroRef$" />
-        <template v-if="careerIntroRef$ && !breakpoints.isSmaller('mobile')">
+        <template v-if="careerIntroRef$ && !isMobile">
           <Teleport to="#map-inject">
             <MapBox
               :label="'地點'"
@@ -341,6 +335,10 @@ const mapQuery = ref(
     &--content {
       gap: 89px 0;
 
+      @media screen and (max-width: 1280px) {
+        gap: 64px 0;
+      }
+
       @media screen and (max-width: 768px) {
         gap: 48px 48px;
       }
@@ -360,7 +358,13 @@ const mapQuery = ref(
       @media screen and (max-width: 768px) {
         --frame-border-radius: 30px;
 
-        padding: 16px;
+        padding: 32px 24px;
+      }
+
+      @media screen and (max-width: 374.9px) {
+        --frame-border-radius: 24px;
+
+        padding: 24px 16px;
       }
 
       padding: 32px 128px;
@@ -382,6 +386,15 @@ const mapQuery = ref(
     padding: 54px;
     object-fit: contain;
 
+    @media screen and (max-width: 1280px) {
+      --width: 450px;
+      --height: 270px;
+
+      > img {
+        max-width: 360px;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       --width: 100%;
       --height: auto;
@@ -400,7 +413,7 @@ const mapQuery = ref(
     --icon-size: 80px;
     --font-size: 24px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       --width: 155px;
       --height: 155px;
       --icon-size: 52.5px;
@@ -412,6 +425,13 @@ const mapQuery = ref(
       --height: 145px;
       --icon-size: 48px;
       --font-size: 16px;
+    }
+
+    @media screen and (max-width: 374.9px) {
+      --width: 108px;
+      --height: 108px;
+      --icon-size: 42px;
+      --font-size: 14px;
     }
   }
 
@@ -436,6 +456,10 @@ const mapQuery = ref(
 
 .main-introduction {
   width: calc(100% - 580px - 64px);
+
+  @media screen and (max-width: 1280px) {
+    width: calc(100% - 480px - 64px);
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -496,5 +520,27 @@ const mapQuery = ref(
     $palette-text-link-hover: palette.$white,
     $palette-code-bg-color: palette.$gray-7
   );
+
+  @media screen and (max-width: 768px) {
+    @include article.use(
+      $title-font-size: 20px,
+      $font-size: 16px,
+      $palette-text: palette.$white,
+      $palette-text-link: palette.$white,
+      $palette-text-link-hover: palette.$white,
+      $palette-code-bg-color: palette.$gray-7
+    );
+  }
+
+  @media screen and (max-width: 375px) {
+    @include article.use(
+      $title-font-size: 20px,
+      $font-size: 14px,
+      $palette-text: palette.$white,
+      $palette-text-link: palette.$white,
+      $palette-text-link-hover: palette.$white,
+      $palette-code-bg-color: palette.$gray-7
+    );
+  }
 }
 </style>

@@ -8,7 +8,7 @@
     --font-size: 22px;
 
     @media screen and (max-width: 768px) {
-      --width: 340px;
+      --width: 100%;
 
       float: none;
       margin: 16px 0;
@@ -39,7 +39,9 @@
 
   &-label,
   &-address {
+    display: block;
     font-style: normal;
+    text-align: left;
   }
 
   &-label {
@@ -68,7 +70,6 @@
     font-size: calc(var(--font-size) * 1.25);
 
     @media screen and (max-width: 768px) {
-      margin-top: 24px;
       margin-left: 24px;
     }
 
@@ -80,5 +81,6 @@
   &-entity {
     height: 100%;
     width: 100%;
+    border-radius: 0 0 20px 20px;
   }
 }
