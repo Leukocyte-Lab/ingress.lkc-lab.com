@@ -341,6 +341,10 @@ const mapQuery = ref(
     &--content {
       gap: 89px 0;
 
+      @media screen and (max-width: 1280px) {
+        gap: 64px 0;
+      }
+
       @media screen and (max-width: 768px) {
         gap: 48px 48px;
       }
@@ -388,6 +392,15 @@ const mapQuery = ref(
     padding: 54px;
     object-fit: contain;
 
+    @media screen and (max-width: 1280px) {
+      --width: 450px;
+      --height: 270px;
+
+      > img {
+        max-width: 360px;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       --width: 100%;
       --height: auto;
@@ -406,7 +419,7 @@ const mapQuery = ref(
     --icon-size: 80px;
     --font-size: 24px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       --width: 155px;
       --height: 155px;
       --icon-size: 52.5px;
@@ -449,6 +462,10 @@ const mapQuery = ref(
 
 .main-introduction {
   width: calc(100% - 580px - 64px);
+
+  @media screen and (max-width: 1280px) {
+    width: calc(100% - 480px - 64px);
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;
