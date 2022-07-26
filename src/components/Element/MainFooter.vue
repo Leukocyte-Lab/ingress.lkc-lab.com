@@ -138,13 +138,8 @@ const isMobile = inject('isMobile');
   @media screen and (max-width: 1280px) {
     --footer-logo-height: 108px;
     --footer-content-width: calc(100% - 24px * 2);
-    --footer-padding-top: 24px;
-    --footer-padding-right: 24px;
-    --footer-padding-bottom: 23px;
-    --footer-padding-left: 24px;
-    --footer-radius: 5px;
-    --footer-title-font-size: 20px;
-    --footer-font-size: 14px;
+    --footer-title-font-size: 22px;
+    --footer-font-size: 16px;
   }
 
   @media screen and (max-width: 768px) {
