@@ -103,8 +103,10 @@ const mapQuery = ref(
 
 <template>
   <main :class="$style['container-main']">
-    <ScreenTone />
-    <NeonTexture class="texture" />
+    <client-only>
+      <ScreenTone />
+      <NeonTexture class="texture" />
+    </client-only>
     <NavBar :items="navbarItems" />
     <div
       :class="[$style['container-content'], $style['container--column']]"
@@ -114,9 +116,7 @@ const mapQuery = ref(
         id="about"
         :class="[
           $style['container-section'],
-          isMobile
-            ? $style['container--column']
-            : $style['container--row'],
+          isMobile ? $style['container--column'] : $style['container--row'],
           $style['wrap'],
         ]"
       >
@@ -208,9 +208,7 @@ const mapQuery = ref(
         <h1 class="title font-uppercase font-bold">What we do</h1>
         <div
           :class="[
-            isMobile
-              ? $style['container--column']
-              : $style['container--row'],
+            isMobile ? $style['container--column'] : $style['container--row'],
             $style['wrap'],
             $style['full-width'],
           ]"
