@@ -184,6 +184,7 @@ onMounted(() => {
 
     position: absolute;
     z-index: 0;
+
     // TODO: Enable screen tone animation after speed and performance be optimized
     // animation: expand-width 1s cubic-bezier(0.65, 0.028, 0.235, 0.55) 1s
     //   forwards;
