@@ -86,14 +86,4 @@ export default ({ mode }) =>
         },
       }),
     ],
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            dompurify: ['dompurify'],
-            iconify: ['@iconify/iconify'],
-          },
-        },
-      },
-    },
   });
