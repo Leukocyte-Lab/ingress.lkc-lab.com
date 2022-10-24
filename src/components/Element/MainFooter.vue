@@ -108,7 +108,7 @@ const isMobile = inject('isMobile');
           :class="[$style['footer-content-wrapper'], $style['container--row']]"
         >
           <p :class="[$style['footer-text'], $style['copyright']]">
-            &copy;2022｜盧氪賽特股份有限公司｜Leukocyte-Lab Co., Ltd.｜All right
+            &copy;2022｜盧氪賽忒股份有限公司｜Leukocyte-Lab Co., Ltd.｜All right
             reserved
           </p>
         </div>
