@@ -159,14 +159,14 @@ onMounted(() => {
     image-rendering: optimizespeed;
     position: absolute;
     z-index: 0;
-    animation-delay: 1s;
     animation: expand-width 1s cubic-bezier(0.5, 0.125, 0.75, 0.25) 1s forwards;
+    animation-delay: 1s;
     will-change: width;
   }
 
   opacity: 0;
-  animation-delay: 1s;
   animation: fade 1s cubic-bezier(0.125, 0.875, 0.135, 0.875) 1s forwards;
+  animation-delay: 1s;
   will-change: opacity;
 
   .dot {
