@@ -33,26 +33,14 @@ const rows = ref(0);
 const columns = ref(0);
 const tonePath = ref('');
 
-// TODO: Enable interactive screen tone effect after speed and performance be optimized
 const $mouse = reactive(
-  // useMouse({
-  //   type: 'client',
-  //   resetOnTouchEnds: true,
-  // })
-  {
-    x: 0,
-    y: 0,
-  }
+  useMouse({
+    type: 'client',
+    resetOnTouchEnds: true,
+  })
 );
 
-// TODO: Enable interactive screen tone effect after speed and performance be optimized
-const $scroll = reactive(
-  // useWindowScroll()
-  {
-    x: 0,
-    y: 0,
-  }
-);
+const $scroll = reactive(useWindowScroll());
 
 const calcVariables = () => {
   width.value = wrapperRef$.value?.offsetWidth || 0;
@@ -118,26 +106,13 @@ const calcDotPath = () => {
   `
     )
     .join('\n');
-};
 
-const watchWrapperSizeChange = () => {
-  const wrapper = wrapperRef$.value;
-  if (wrapper) {
-    new ResizeObserver(() => {
-      calcVariables();
-      calcDotPath();
-    }).observe(wrapper);
-  }
+  window.requestAnimationFrame(calcDotPath);
 };
-
-watchEffect(() => {
-  calcDotPath();
-});
 
 onMounted(() => {
   calcVariables();
-  calcDotPath();
-  watchWrapperSizeChange();
+  window.requestAnimationFrame(calcDotPath);
 });
 </script>
 
@@ -176,20 +151,23 @@ onMounted(() => {
 @use '@/assets/styles/scss/components/effect.module.scss' as animate;
 
 .screen-tone {
-  shape-rendering: optimizespeed;
-  image-rendering: optimizespeed;
-
   &-wrapper {
     @include animate.expanding($start: 0, $end: 100%);
+    @include animate.appearing($start: 0, $end: 1);
 
+    shape-rendering: optimizespeed;
+    image-rendering: optimizespeed;
     position: absolute;
     z-index: 0;
-
-    // TODO: Enable screen tone animation after speed and performance be optimized
-    // animation: expand-width 1s cubic-bezier(0.65, 0.028, 0.235, 0.55) 1s
-    //   forwards;
-    // will-change: width;
+    animation-delay: 1s;
+    animation: expand-width 1s cubic-bezier(0.5, 0.125, 0.75, 0.25) 1s forwards;
+    will-change: width;
   }
+
+  opacity: 0;
+  animation-delay: 1s;
+  animation: fade 1s cubic-bezier(0.125, 0.875, 0.135, 0.875) 1s forwards;
+  will-change: opacity;
 
   .dot {
     fill: #{palette.$white};

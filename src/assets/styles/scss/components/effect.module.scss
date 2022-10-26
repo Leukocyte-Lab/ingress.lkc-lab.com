@@ -19,3 +19,15 @@
     }
   }
 }
+
+@mixin appearing($start: 0, $end: 1) {
+  @keyframes fade {
+    from {
+      opacity: $start;
+    }
+
+    to {
+      opacity: $end;
+    }
+  }
+}
