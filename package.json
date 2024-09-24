@@ -28,7 +28,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vueuse/core": "^8.9.4",
     "@vueuse/head": "^0.7.6",
-    "dompurify": "^2.3.10",
+    "dompurify": "^2.5.4",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
