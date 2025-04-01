@@ -281,7 +281,7 @@ const mapQuery = ref(
           <Teleport to="#map-inject">
             <MapBox
               :label="'地點'"
-              :address="'新北市板橋區民族路 34 巷 22 號 2 樓'"
+              :address="'臺北市中正區八德路一段 23 號 6 樓'"
               :query="mapQuery"
             />
           </Teleport>
@@ -289,7 +289,7 @@ const mapQuery = ref(
         <template v-else>
           <MapBox
             :label="'地點'"
-            :address="'新北市板橋區民族路 34 巷 22 號 2 樓'"
+            :address="'臺北市中正區八德路一段 23 號 6 樓'"
             :query="mapQuery"
           />
         </template>
