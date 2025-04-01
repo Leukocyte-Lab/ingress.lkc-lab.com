@@ -79,9 +79,9 @@ const isMobile = inject('isMobile');
                   :class="$style['footer-icon']"
                   :icon="'fa6-solid:location-dot'"
                 />
-                <span
-                  >220854<br />新北市板橋區<br />民族路 34 巷 22 號 2 樓</span
-                >
+                <span>
+                  100410<br />臺北市中正區<br />八德路一段 23 號 6 樓
+                </span>
               </a>
             </p>
           </div>
