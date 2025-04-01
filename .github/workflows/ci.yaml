@@ -11,14 +11,40 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - name: Install Dependencies 📦
-        run: npm install --legacy-peer-deps
+      - name: 🎒 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      - name: 📥 Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 9
+          run_install: false
+      
+      - name: 🔎 Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: 💾 Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 📦 Install Dependencies
+        run: CI=true pnpm install
 
       - name: Run Linter 🧪
-        run: npm run lint
+        run: pnpm run lint
       
       - name: Build 🔧
-        run: npm run build
+        run: pnpm run build
         env:
           VITE_TYPEKIT_ID: ${{ secrets.VITE_TYPEKIT_ID }}
 
