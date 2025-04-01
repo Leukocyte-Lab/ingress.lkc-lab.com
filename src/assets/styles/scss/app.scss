@@ -1,7 +1,5 @@
 @use '@/assets/styles/scss/components/palette.module.scss' as palette;
-
 @import './shared';
-
 @include reset;
 @include font;
 

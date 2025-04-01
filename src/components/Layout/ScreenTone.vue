@@ -147,7 +147,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @use '@/assets/styles/scss/components/palette.module.scss' as palette;
-
 @use '@/assets/styles/scss/components/effect.module.scss' as animate;
 
 .screen-tone {

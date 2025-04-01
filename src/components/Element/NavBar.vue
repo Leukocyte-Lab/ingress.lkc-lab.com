@@ -48,11 +48,11 @@ defineProps<{
   --nav-radius: 5px;
   --nav-font-size: 22px;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (width <= 1280px) {
     --nav-item-width: 640px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     --nav-height: 70px;
     --nav-logo-width: 120px;
     --nav-padding-top: 16px;

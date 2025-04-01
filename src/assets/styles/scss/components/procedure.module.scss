@@ -15,7 +15,7 @@
     margin: var(--font-size) 0;
     margin-top: calc(var(--font-size) * 2.5);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       --size: 56px;
 
       flex-direction: column;
@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       flex-direction: row;
       justify-content: flex-start;
     }
@@ -45,7 +45,7 @@
       border: var(--stroke-width) solid #{palette.$white};
       border-radius: 50%;
 
-      @media screen and (min-width: 375px) and (max-width: 768px) {
+      @media screen and (width >= 375px) and (width <= 768px) {
         margin-right: calc(var(--size) / 2);
       }
     }
@@ -54,11 +54,11 @@
       margin: calc(var(--font-size) * 0.8) 0;
       font-size: var(--font-size);
 
-      @media screen and (max-width: 768px) {
+      @media screen and (width <= 768px) {
         margin: calc(var(--font-size) * 0.8) auto;
       }
 
-      @media screen and (min-width: 375px) and (max-width: 768px) {
+      @media screen and (width >= 375px) and (width <= 768px) {
         padding-right: calc(var(--size) * 1.5);
       }
     }

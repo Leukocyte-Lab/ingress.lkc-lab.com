@@ -333,33 +333,33 @@ const mapQuery = ref(
     &--content {
       gap: 89px 0;
 
-      @media screen and (max-width: 1280px) {
+      @media screen and (width <= 1280px) {
         gap: 64px 0;
       }
 
-      @media screen and (max-width: 768px) {
-        gap: 48px 48px;
+      @media screen and (width <= 768px) {
+        gap: 48px;
       }
     }
 
     &--spotlight {
       gap: 60px 0;
 
-      @media screen and (max-width: 768px) {
-        gap: 48px 48px;
+      @media screen and (width <= 768px) {
+        gap: 48px;
       }
     }
 
     &--frame {
       --frame-border-radius: 75px;
 
-      @media screen and (max-width: 768px) {
+      @media screen and (width <= 768px) {
         --frame-border-radius: 30px;
 
         padding: 32px 24px;
       }
 
-      @media screen and (max-width: 374.9px) {
+      @media screen and (width <= 374.9px) {
         --frame-border-radius: 24px;
 
         padding: 24px 16px;
@@ -384,7 +384,7 @@ const mapQuery = ref(
     padding: 54px;
     object-fit: contain;
 
-    @media screen and (max-width: 1280px) {
+    @media screen and (width <= 1280px) {
       --width: 450px;
       --height: 270px;
 
@@ -393,7 +393,7 @@ const mapQuery = ref(
       }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       --width: 100%;
       --height: auto;
 
@@ -411,21 +411,21 @@ const mapQuery = ref(
     --icon-size: 80px;
     --font-size: 24px;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (width <= 1024px) {
       --width: 155px;
       --height: 155px;
       --icon-size: 52.5px;
       --font-size: 18px;
     }
 
-    @media screen and (max-width: 375px) {
+    @media screen and (width <= 375px) {
       --width: 145px;
       --height: 145px;
       --icon-size: 48px;
       --font-size: 16px;
     }
 
-    @media screen and (max-width: 374.9px) {
+    @media screen and (width <= 374.9px) {
       --width: 108px;
       --height: 108px;
       --icon-size: 42px;
@@ -439,7 +439,7 @@ const mapQuery = ref(
 
     padding: 56px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       --width: 100%;
       --height: auto;
 
@@ -455,11 +455,11 @@ const mapQuery = ref(
 .main-introduction {
   width: calc(100% - 580px - 64px);
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (width <= 1280px) {
     width: calc(100% - 480px - 64px);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     width: 100%;
   }
 }
@@ -483,7 +483,7 @@ const mapQuery = ref(
 
 .sales {
   &-wrapper {
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       text-align: center;
     }
   }
@@ -492,14 +492,14 @@ const mapQuery = ref(
     margin: 35px 0;
     margin-right: auto;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       margin: 35px auto;
     }
   }
 }
 
 .career-wrapper {
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     text-align: center;
   }
 }
@@ -519,7 +519,7 @@ const mapQuery = ref(
     $palette-code-bg-color: palette.$gray-7
   );
 
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     @include article.use(
       $title-font-size: 20px,
       $font-size: 16px,
@@ -530,7 +530,7 @@ const mapQuery = ref(
     );
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (width <= 375px) {
     @include article.use(
       $title-font-size: 20px,
       $font-size: 14px,

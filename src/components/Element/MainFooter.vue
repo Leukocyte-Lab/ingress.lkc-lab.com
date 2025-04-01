@@ -135,14 +135,14 @@ const isMobile = inject('isMobile');
   --footer-title-font-size: 24px;
   --footer-font-size: 18px;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (width <= 1280px) {
     --footer-logo-height: 108px;
     --footer-content-width: calc(100% - 24px * 2);
     --footer-title-font-size: 22px;
     --footer-font-size: 16px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     --footer-height: auto;
     --footer-logo-height: auto;
     --footer-content-width: 100%;
